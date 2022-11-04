@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+
+    <changeSet id="1667566725748-1" author="marekm (generated)">
+        <createTable tableName="branch">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_branch"/>
+            </column>
+            <column name="tree_id" type="INT"/>
+            <column name="size" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1667566725748-2" author="marekm (generated)">
+        <createTable tableName="fruit">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_fruit"/>
+            </column>
+            <column name="tree_id" type="INT"/>
+            <column name="size" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="colour" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1667566725748-3" author="marekm (generated)">
+        <createTable tableName="leaf">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_leaf"/>
+            </column>
+            <column name="tree_id" type="INT"/>
+            <column name="size" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="colour" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1667566725748-4" author="marekm (generated)">
+        <createTable tableName="neck">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_neck"/>
+            </column>
+            <column name="tree_id" type="INT"/>
+            <column name="size" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1667566725748-5" author="marekm (generated)">
+        <createTable tableName="projects">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_projects"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="type" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1667566725748-6" author="marekm (generated)">
+        <createTable tableName="tree">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_tree"/>
+            </column>
+            <column name="forest_id" type="INT"/>
+            <column name="type" type="INT"/>
+            <column name="species" type="INT"/>
+            <column name="tree_cross_section" type="INT"/>
+            <column name="age" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="height" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="trunk_circumference" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1667566725748-7" author="marekm (generated)">
+        <addForeignKeyConstraint baseColumnNames="tree_id" baseTableName="branch" constraintName="FK_BRANCH_ON_TREE"
+                                 referencedColumnNames="id" referencedTableName="tree"/>
+    </changeSet>
+    <changeSet id="1667566725748-8" author="marekm (generated)">
+        <addForeignKeyConstraint baseColumnNames="tree_id" baseTableName="fruit" constraintName="FK_FRUIT_ON_TREE"
+                                 referencedColumnNames="id" referencedTableName="tree"/>
+    </changeSet>
+    <changeSet id="1667566725748-9" author="marekm (generated)">
+        <addForeignKeyConstraint baseColumnNames="tree_id" baseTableName="leaf" constraintName="FK_LEAF_ON_TREE"
+                                 referencedColumnNames="id" referencedTableName="tree"/>
+    </changeSet>
+    <changeSet id="1667566725748-10" author="marekm (generated)">
+        <addForeignKeyConstraint baseColumnNames="tree_id" baseTableName="neck" constraintName="FK_NECK_ON_TREE"
+                                 referencedColumnNames="id" referencedTableName="tree"/>
+    </changeSet>
+    <changeSet id="1667566725748-11" author="marekm (generated)">
+        <addForeignKeyConstraint baseColumnNames="forest_id" baseTableName="tree" constraintName="FK_TREE_ON_FOREST"
+                                 referencedColumnNames="id" referencedTableName="projects"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,5 @@
+/todo-db.trace.db
+/todo-db.mv.db
+/target/
+/.idea/
+/.jpb/
